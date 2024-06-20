@@ -112,5 +112,5 @@ sudo add-apt-repository --yes --update ppa:ansible/ansible
 sudo apt install ansible -y
 
 #########################################################################################
-install sshpass to add the pass word one time to all hosts
+#install sshpass to add the pass word one time to all hosts
 sudo apt-get install -y sshpass
