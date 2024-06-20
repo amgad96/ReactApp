@@ -1,8 +1,9 @@
 #!/bin/bash
-# This command to generate the ssh key and copy it to hosts
+# This command to generate the ssh key and copy it to hosts 
+# Note : These IPs are just for testing, and it will be changed. 
 ips=("161.35.219.190" "134.122.78.18")
 
-# This command to generate the ssh key and automatically enter key
+# This command to generate the ssh key and automatically enter key#
 echo -ne '\n' | ssh-keygen -t rsa -b 4096 
 #echo -ne '\n' | ssh-keygen -t rsa -b 4096 -y
 # This loop to copy the ssh key to all hosts ips
