@@ -1,0 +1,6 @@
+---
+- name: Run the token on worker nodes
+  shell: "{{ hostvars['localhost'].join_command }}"
+  become: yes
+  when: hostvars['localhost'].join_command is defined
+

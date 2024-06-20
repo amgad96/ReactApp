@@ -1,0 +1,12 @@
+version: '3.8'  # Version of Docker Compose
+services:
+  mongo:
+    image: mongo:latest  # Use the latest MongoDB image
+    #container_name: mongod  # Name of the container
+    ports:
+      - "27017:27017"  # Map port 27017 on the host to port 27017 in the container
+    volumes:
+      - mongo-data:/data/db  # Persist data to a Docker volume
+
+volumes:
+  mongo-data:

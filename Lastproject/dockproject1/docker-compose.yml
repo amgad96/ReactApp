@@ -1,0 +1,30 @@
+version: '3.8'  # Version of Docker Compose
+services:
+  mongo:
+    image: mongo:latest  # Use the latest MongoDB image
+    container_name: mongodb  # Name of the container
+    ports:
+      - "27017:27017"  # Map port 27017 on the host to port 27017 in the container
+    volumes:
+      - mongo-data:/data/db  # Persist data to a Docker volume
+    networks:
+      - mynetwork
+  backend:
+    image: backendimg:latest  # Use the latest MongoDB image
+    container_name: backendcon  # Name of the container
+    ports:
+      - "80:80"  # Map port 80 on the host to port 80 in the container
+    networks:
+      - mynetwork
+  frontend:
+    image: frontendimg:latest  # Use the latest builded react image
+    container_name: front-container  # Name of the container
+    ports:
+      - "3000:3000"  # Map port 3000 on the host to port 3000 in the container
+    networks:
+      - mynetwork
+volumes:
+  mongo-data:
+networks:
+  mynetwork:
+    driver: bridge

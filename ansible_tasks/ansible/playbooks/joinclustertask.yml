@@ -1,0 +1,10 @@
+---
+- name: generate cluster token Master Node Task
+  hosts: localhost
+  roles:
+    - gen_key
+
+- name: join cluster via token
+  hosts: kubehosts
+  roles:
+    - join_cluster

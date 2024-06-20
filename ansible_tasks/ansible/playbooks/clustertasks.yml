@@ -1,0 +1,5 @@
+---
+- name: install kubernetes on worker nodes and join to the cluster
+  hosts: kubehosts
+  roles: 
+    - kubeinstall

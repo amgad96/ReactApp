@@ -1,0 +1,38 @@
+---
+- name: copy Xauthority script
+  ansible.builtin.copy:
+      src: /root/Xauthocjeck.sh
+      dest: /root/Xauthocjeck.sh
+      owner: root
+      group: root
+      mode: '0755'
+
+- name: copy the script of installing containerd and dependencies and kuberenetes
+  ansible.builtin.copy:
+      src: /root/containerDandDepKube.sh
+      dest: /root/containerDandDepKube.sh
+      owner: root
+      group: root
+      mode: '0755'
+
+- name: Run shell script on remote server
+  shell: sh /root/Xauthocjeck.sh
+
+- name: Run shell script on remote server
+  shell: sh /root/containerDandDepKube.sh
+
+
+- name: Remove shell script from remote server
+  file:
+    path: /root/Xauthocjeck.sh
+    state: absent
+
+- name: Remove shell script from remote server
+  file:
+    path: /root/containerDandDepKube.sh
+    state: absent
+- name: Run the token on worker nodes
+  shell: "{{ join_command_output.stdout }}"
+  become: yes
+  when: join_command_output.stdout is defined
+
