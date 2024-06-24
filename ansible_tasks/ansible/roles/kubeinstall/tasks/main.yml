@@ -31,8 +31,3 @@
   file:
     path: /root/containerDandDepKube.sh
     state: absent
-- name: Run the token on worker nodes
-  shell: "{{ join_command_output.stdout }}"
-  become: yes
-  when: join_command_output.stdout is defined
-
